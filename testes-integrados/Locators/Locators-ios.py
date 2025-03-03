@@ -1,0 +1,2 @@
+# Globais
+VARIABLE = 'xpath=//'
