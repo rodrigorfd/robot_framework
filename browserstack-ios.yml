@@ -1,0 +1,18 @@
+framework: robot
+app: app-ios
+platforms:
+  - platformName: ios
+    deviceName: iPhone 12
+    platformVersion: 14
+buildName: Conta Test iOS
+projectName: Automate Conta BBC
+buildIdentifier: '#${BUILD_NUMBER}' # Supports strings along with either/both ${expression}
+debug: true
+networkLogs: true
+consoleLogs: info 
+unicodeKeyboard: true
+resetKeyboard: true
+autoGrantPermissions: true
+autoDismissAlerts: true
+interactiveDebugging: true
+parallelsPerPlatform: 1

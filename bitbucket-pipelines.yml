@@ -1,0 +1,32 @@
+image: python:3.11.3
+    
+pipelines:
+  custom: # Trigger BrowserStack integration
+
+# Pipeline de validação do app buildado
+    browserstack-smoke-android:
+      - step:
+          name: Run ContaTest Android
+          caches:
+           - pip
+          script:
+           - pip install -r requirements.txt
+           - mv browserstack-android.yml browserstack.yml
+           - browserstack-sdk robot -v PLATFORM:android --outputdir reports ./testes-integrados/MainTest/Test.robot
+          after-script:
+           - python scripts/read-bs-status-response.py $BROWSERSTACK_USER_TOKEN
+          artifacts:
+           - reports/*
+    browserstack-smoke-ios:
+      - step:
+          name: Run ContaTest iOS
+          caches:
+           - pip
+          script:
+           - pip install -r requirements.txt
+           - mv browserstack-ios.yml browserstack.yml
+           - browserstack-sdk robot -v PLATFORM:ios --outputdir reports ./testes-integrados/MainTest/Test.robot
+          after-script:
+           - python scripts/read-bs-status-response.py $BROWSERSTACK_USER_TOKEN
+          artifacts:
+           - reports/*

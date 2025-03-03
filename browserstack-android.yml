@@ -1,0 +1,18 @@
+framework: robot
+app: app-android
+platforms:
+  - platformName: android
+    deviceName: Samsung Galaxy S22
+    platformVersion: 12.0
+buildName: Conta Test Android
+projectName: Automate Conta BBC
+buildIdentifier: '#${BUILD_NUMBER}' # Supports strings along with either/both ${expression}
+debug: true
+networkLogs: true
+consoleLogs: info 
+unicodeKeyboard: true
+resetKeyboard: true
+autoGrantPermissions: true
+autoDismissAlerts: true
+interactiveDebugging: true
+parallelsPerPlatform: 1
